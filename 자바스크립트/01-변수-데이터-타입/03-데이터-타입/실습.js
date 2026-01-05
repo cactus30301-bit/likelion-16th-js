@@ -43,26 +43,71 @@ console.log('탭\n\t문자')
 console.log('백슬래시\문자')
 console.log('백슬래시(\\)')
 
+// 문자 + 문자 (문자 연결)
+const materialType = '아이언'
+const heroGender = '맨'
+const hero = materialType + heroGender
+console.log(hero) // '아이언' + '맨' = '아이언맨'
+console.log('Java'+'Script')//'Jave' + 'Script = 'JavaScript'
+
 
 // --------------------------------------------------------------------------
 // 숫자 (Number)
 // --------------------------------------------------------------------------
 
 // 정수
+console.log(1076840)
 
 // 실수 (정수 + 소수)
+console.log(-823 + 0.73)
 
 // 음수
+console.log(-107)
 
 // 큰 숫자
+console.log(1_076_840)
 
-// 과학적 표기법
+// 과학적 표기법 (지수 표기법)
 // 2.5 × 10^6 = 2,500,000
+console.log(25e5)
+console.log(2.5e6)
 
 // 특수 숫자 값
 // * Infinity
-// * -Infinity
-// * NaN
+// * -Infinity (-1 * Infinity)
+// * NaN (Not a Number)
+// 큰 숫자와 작은 숫자
+console.log(Number.MAX_SAFE_INTEGER)
+console.log(Number.MIN_SAFE_INTEGER)
+
+// 수학 산술 연산자 (+, -, ×, ÷)
+// 프로그래밍 산술 연산자 (+, -, *, /)
+// 산술 연산 (숫자 값 끼리 계산)
+// 덧셈(add) 연산
+console.log(9 + 1) //10
+console.log(100 + -20) //80
+console.log(0.9 + 0.2) //1.1
+
+// 뺄셈(subtract) 연산
+console.log(9 - 1) //8
+console.log(100 - -20) //120
+console.log(0.9 - 0.2) //0.7
+
+// 곱셈(multiplay) 연산
+console.log(9 * 1) //9
+console.log(100 * 20) // 2e3.(2000, 2_000)
+console.log(0.9 * 0.2) //0.18000000000000002
+
+// 나눗셈(divide) 연산
+console.log(9 / 1) //9
+console.log(100 / 20) //5
+console.log(0.9 / 0.2) //4.5
+
+// * 나머지(modulus) 연산
+//0, 1, 2 사이클을 활용할 때 사용
+console.log(9 & 1) //1
+console.log(100 & 20) //4
+console.log(0.9 & 0.3) //0
 
 
 // --------------------------------------------------------------------------
@@ -70,8 +115,28 @@ console.log('백슬래시(\\)')
 // --------------------------------------------------------------------------
 
 // true 값
+console.log(true)
+console.log(3 == '3') // 비교 연산자 -> boolean
 
 // false 값
+console.log(false)
+console.log(3 === '3') // 비교 연산자 -> boolean
+
+
+// --------------------------------------------------------------------------
+// 언디파인드 (Undefined)
+// --------------------------------------------------------------------------
+
+// 선언만 하고 값을 할당하지 않음
+// 1. 선언
+// 2. 초기화 : 의도적으로 값을 할당하지 않음 (엔진이 초기값으로 undefined 할당)
+let memoryStick
+
+console.log(memoryStick) //undefined
+
+// undefined vs null 비교
+// undefined → 값이 없음 (자동)
+// null     → 값이 없음 (의도적)
 
 
 // --------------------------------------------------------------------------
@@ -81,27 +146,47 @@ console.log('백슬래시(\\)')
 // null 값 - 의도적으로 비어있음
 // 예시:
 // * 선택된 인덱스
+let selectedIndex = null // 개발자가 의도를 가지고 값을 비운 경우를 나타냄
+console.log(selectedIndex)
+selectedIndex = 3 // 4번째 박스가 선택됨 (상태)
+console.log(selectedIndex)
+selectedIndex = 1 // 2번째 박스가 선택됨 (상태: 시간이ㅡ 흐름에 따라 변경된 값)
 // * 로그인 사용자
+let logInUser = null // 로그인된 사용자가 없다. (의도를 가지고 비움)
+// 로그인 시도 (html)
+// 로그인 성공
+logInUser = '효경'
+console.log('로그인 사용자:', logInUser)
+// 로그아웃
+logInUser = null // 로그인 사용자가 없다. (상태 변경)
+console.log('로그인 사용자: ', logInUser)
 
-
-// --------------------------------------------------------------------------
-// 언디파인드 (Undefined)
-// --------------------------------------------------------------------------
-
-// 선언만 하고 값을 할당하지 않음
-
-// undefined vs null 비교
-// undefined → 값이 없음 (자동)
-// null     → 값이 없음 (의도적)
 
 
 // --------------------------------------------------------------------------
 // 심볼 (Symbol)
 // --------------------------------------------------------------------------
 
-// 심볼 생성 - 항상 고유한 값
 
-// 설명이 있는 심볼
+const productAID = 'abc', 
+      productBID = 'abc'
+
+
+// 문자열의 경우, 같은 키(key) 값인 경우 동일한 값이다.
+const productAIdString = 'abc', 
+      productBIdString = 'abc'
+
+// 심볼 생성 - 항상 고유한 값
+// 심볼인 경우, 같은 키 값을 사용해도 각각 고유한 값이다.
+const productAIdSymbol = Symbol('abc'), 
+      productBIdSymbol = Symbol('abc')
+
+// 고유한 값인가 ? (productAID와 productBID가 값이 달라야 한다.)
+// 비교 연산자 (두 값을 비교 -> 불리언 값 평가)
+// 두 값이 같다. true 불리언 평가 (고유하지 않다)
+console.log('문자열을 사용할 때 고유하지 않다.', productAID == productBID) 
+console.log('문자열을 사용할 때 고유하지 않다.', productAIdString == productBIdString)
+console.log('심볼을 사용할 때 고유하지 않다?', productAIdSymbol == productBIdSymbol)
 
 
 // --------------------------------------------------------------------------
