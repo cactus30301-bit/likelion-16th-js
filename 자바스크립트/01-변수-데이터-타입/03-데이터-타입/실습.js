@@ -232,6 +232,8 @@ console.log('3. 커피 추출')
 console.log('4. 커피 제조')
 // 5. 완성된 커피 내보내기
 console.log('5. 완성된 커피 내보내기')
+
+return `${원두} 커피`
 }
 
 // 기능 사용 (실행, 호출)
@@ -257,18 +259,50 @@ console.log(장바구니)
 
 // --------------------------------------------------------------------------
 // typeof 연산자
+// * 데이터 유형(type of data)
+// * type of 연산자는 데이터의 타입을 확인할 때 사용
+// * type of 데이터(값) 또는 표현식 -> 타입(유형) 값 (문자열 제공)
 // --------------------------------------------------------------------------
 
-// 기본 타입
+// 기본 타입 (Primitive Types)
+console.group('기본 타입 ------------------------')
 // * null
+console.log(typeof null) // ⚠️'object' 반환
 // * undefined
+console.log(typeof undefined) // 'undefined' 반환
 // * String
+console.log(typeof '데이터 타입을 문자 값으로 알려줌') // 'string'
 // * Number
+console.log(typeof 20260105) // 'number'
 // * Boolean
+console.log(typeof false) // 'boolean'
 // * BigInt
+console.log(typeof 900n) // 'bigint
 // * Symbol
+console.log(typeof Symbol('y9')) // 'symbol'
+console.group()
 
 // 참조 타입
+console.group('객체 타입 ----------------------')
 // * Object
+console.log(typeof {})
 // * Array
+console.log(typeof [])
 // * Function
+console.log(typeof function() {})
+console.groupEnd()
+console.log('백슬래시\\문자')
+const str = "Life, the universe and everything. Answer:";
+
+console.log(`${str} ${str.length}`);
+// Expected output: "Life, the universe and everything. Answer: 42"
+
+function makeCoffee(coffeeBeans, water) {
+  console.log('1. 원두를 갈고 있습니다.')
+  console.log('2. 물을 끓이고 있습니다.')
+  console.log('3. 커피를 추출하고 있습니다.')
+  
+  let coffee = `맛있는 ${coffeeBeans} 커피`
+  return coffee
+}
+console.log(makeCoffee('아라비카', '물'))
