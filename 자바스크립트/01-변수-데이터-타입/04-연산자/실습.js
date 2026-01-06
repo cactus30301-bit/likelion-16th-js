@@ -74,10 +74,37 @@ console.log(21 % 12) //
 
 // 문자열 + 문자열
 
+const 성 = "김"
+const 이름 = "효경"
+console.log(성 + 이름)
+
+
 // 문자열 + 숫자 (숫자가 문자열로 변환됨)
+// 문자열 + 숫자 ??
+// 문자열 + '숫자'(문자열화) = 문자열
+const greetingMessage = '안녕!'
+const myFavoriteNumber = 9
+let confirmResult = greetingMessage + myFavoriteNumber
+
+console.log(greetingMessage + myFavoriteNumber)
+// const result = '안녕!' + 9
+// const result = '안녕!' + '9' ~ 숫자 데이터를 문자화
+// const result = '안녕!9'
+console.log(confirmResult, typeof confirmResult)
+
 
 // 숫자 + 문자열
+confirmResult = myFavoriteNumber + greetingMessage
+// confirmResult = 9 + '안녕!'
+// confirmResult = '9' + '안녕!'
+// confirmResult = '9안녕!'
+console.log(confirmResult, typeof confirmResult)
 
+confirmResult = greetingMessage + true
+console.log(confirmResult, typeof confirmResult)
+
+confirmResult = myFavoriteNumber + true
+console.log(confirmResult, typeof confirmResult)
 
 // --------------------------------------------------------------------------
 // [산술 연산] 거듭제곱
@@ -100,51 +127,101 @@ console.log(21 % 12) //
 // [산술 연산] 증가/감소 연산자
 // --------------------------------------------------------------------------
 
-let count = 0
+// 증가(++) 연산자
+// 감소(--) 연산자
+// 주의! 전위(앞)/후위(뒤) 위치에 따라 작동 방식이 달라짐!
+
+let count = 3
+console.log(count)
 
 // 후 증가 (Post-increment)
+// count = count + 1
 
-// 전 증가 (Pre-increment)
+count++ // 메모리에서 count는 여전히 3
+console.log(count) // 이 때 (다음라인) count = 4
+
+// 선 증가 (Pre-increment)
+// count = count + 1
+
+++count // 이 라인에서 값이 바로 바뀜 (전증가라) count = 5
+console.log(count) // 이 때 (다음라인) count = 5
 
 // 후 감소 (Post-decrement)
+console.log(count--)
+console.log(count)
 
-// 전 감소 (Pre-decrement)
-
+// 선 감소 (Pre-decrement)
+console.log(--count)
+console.log(count)
 
 // --------------------------------------------------------------------------
-// 할당 연산자
+// [산술 연산] 할당 연산자
 // --------------------------------------------------------------------------
 
-let x = 10
+// 산술 연산자와 할당 연산자를 활용해 변수의 값을 증가 또는 감소
+let x = 10 + 21
+console.log(x)
 
 // 기본 할당
+x = 8
+console.log(x)
 
 // 더한 후, 할당
+//x = x + 2
+//복합 할당 연산자 (할당 + 산술 연산자)
+x += 2
+console.log(x) 
 
 // 뺀 후, 할당
+//x = x - 9
+x -= 9
+console.log(x)
 
 // 곱한 후, 할당
+// x = x * 2
+x *= 2
+console.log(x)
 
 // 나눈 후, 할당
+// x = x / 2
+x /= 2
+console.log(x)
 
 // 나머지 후, 할당
+// x = x % 3
+x %=2 
+console.log(x)
 
 // 거듭제곱 후, 할당
+// x = x ** 1000
+x **= 1000
+console.log(x)
 
+
+//순차적으로 오른편의 표현식이 평가되어 왼편의 변수에 할당
+// 전체는 할당문 오른쪽은 표현식, 평가(evaluation)되어 할당
 
 // --------------------------------------------------------------------------
 // [할당 연산] 점수 누적
 // --------------------------------------------------------------------------
 let totalScore = 0
-// console.log(totalScore)
+
+totalScore += 92
+totalScore += 100
+totalScore += 81
+console.log(totalScore)
 
 // [할당 연산] 재고 감소
 let stock = 100
-// console.log(stock)
+stock -= 5
+stock -= 15
+stock -= 34
+console.log(stock)
 
 // [할당 연산] 가격 인상
 let price = 10000
-// console.log(price)
+price *= (1 + 0.5) // 5%인상
+console.log(price)
 
 
 // --------------------------------------------------------------------------
@@ -155,12 +232,24 @@ let price = 10000
 // 모든 조건이 true여야 true
 
 // 예제: 로그인 & 권한 검증
-let is_logged_in
-let has_permission
+// Netflix 구독 (계정 소유 && 사용료 지불)
+let is_logged_in = false
+let has_permission = false
 // 로그인 ❌ 권한 ❌ 출력 결과: false
+console.log(is_logged_in && has_permission)
+
 // 로그인 ✅ 권한 ❌ 출력 결과: false
+is_logged_in = true
+console.log(is_logged_in && has_permission)
+
 // 로그인 ❌ 권한 ✅ 출력 결과: false
+is_logged_in = false
+has_permission = true
+console.log(is_logged_in && has_permission)
+
 // 로그인 ✅ 권한 ✅ 출력 결과: true
+is_logged_in = true
+console.log(is_logged_in && has_permission)
 
 
 // --------------------------------------------------------------------------
@@ -170,15 +259,28 @@ let has_permission
 
 // X || Y (X 또는 Y)
 // 조건 중 하나만 true여도 true
+// 모든 조건이 거짓일 때만 false
 
 // 예제: 이상형 확인
 let is_handsome
 let is_rich
 // 잘생김 ❌ 부자 ❌ 출력 결과: false
-// 잘생김 ❌ 부자 ✅ 출력 결과: true
-// 잘생김 ✅ 부자 ❌ 출력 결과: true
-// 잘생김 ✅ 부자 ✅ 출력 결과: true
+is_handsome = false
+is_rich = false
+console.log(is_handsome || is_rich)
 
+// 잘생김 ❌ 부자 ✅ 출력 결과: true
+is_rich = true
+console.log(is_handsome || is_rich)
+
+// 잘생김 ✅ 부자 ❌ 출력 결과: true
+is_handsome = true
+is_rich = false
+console.log(is_handsome || is_rich)
+
+// 잘생김 ✅ 부자 ✅ 출력 결과: true
+is_rich = true
+console.log(is_handsome || is_rich)
 
 // --------------------------------------------------------------------------
 // [논리 연산] NOT (!)
@@ -187,46 +289,101 @@ let is_rich
 // 반대로 변환
 let truthy = true
 // 출력 결과: false
-let reverse_truthy
+let reverse_truthy = !truthy
+console.log (reverse_truthy)
+
 
 let falsy = false
+let reverse_falsy = !falsy
 // 출력 결과: true
-let reverse_falsy
+console.log(reverse_falsy)
 
 // 예제: 로그인 상태 반전
+let is_logged_out = !is_logged_in //값 반전
 // 출력 결과: is_logged_in 값 반전
-let is_logged_out
+console.log(is_logged_out)
 
 // 이중 부정 (!!) - boolean 변환 (Boolean() 대체)
-// '자바스크립트'
+console.log(Boolean('자바스크립트'))
+console.log(!!'')
+
+
 // '' 변환 출력 결과: false
+console.log(Boolean(''))
+console.log(!!'')
+
 // ' ' 변환 출력 결과: true
+console.log(Boolean(' '))
+console.log(!!' ')
+
 // 0 변환 출력 결과: false
+console.log(Boolean(0))
+console.log(!!0)
+
 // '0' 변환 출력 결과: true
+console.log(Boolean('0'))
+console.log(!!'0')
+
 // 1 변환 출력 결과: true
+console.log(Boolean(1))
+console.log(!!1)
+
 // '1' 변환 출력 결과: true
+console.log(Boolean('1'))
+console.log(!!'1')
+
 // null 변환 출력 결과: false
+console.log(Boolean(null))
+console.log(!!null)
+
 // undefined 변환 출력 결과: false
+console.log(Boolean(undefined))
+console.log(!!undefined)
 
 
 // --------------------------------------------------------------------------
 // [비교 연산] 크기 비교
 // --------------------------------------------------------------------------
 
+const a = 9, b = 4
+
 // 숫자 비교
 // * 10이 5보다 큼
-// * 10이 5보다 작지 않음
-// * 10이 10보다 크거나 같음
-// * 10이 5보다 작거나 같지 않음
+console.log(a > b)
 
+// * 10이 5보다 작지 않음
+console.log(a < b)
+
+// * 10이 10보다 크거나 같음
+console.log(a >= b)
+// * 10이 5보다 작거나 같지 않음
+console.log(a <= b)
+
+//===================
 // 문자열 비교 (사전순)
+//===================
+const memberName = '김이현'
+const partnerName = '이주인'
+
+console.log(memberName < partnerName)
+console.log('박아영' < '황현주')
+console.log('황현주' < '최수인')
+
+
 // * 'a', 'b' 비교
-// * 'apple', 'banana' 비교
-// * 'A', 'a' 비교 (대문자가 소문자보다 작음)
+console.log('a' < 'b')
+console.log('k' < 'z')
+
+// * 'apple', 'banana' 비교 ~ 단어 비교시 첫글자를 가지고 비교(같으면 뒤 알파벳을 순차적으로 비교)
+console.log('apple' < 'banana')
+
+// * 'A', 'a' 비교 (대문자가 소문자보다 작음 n, Q 비교했을 때, n이 소문자라 n이 더 크다.)
+console.log('A' < 'a')
 
 // 문자열과 숫자 비교 (문자열이 숫자로 변환됨)
 // * '10'이 5보다 큼
 // * '100'이 '20'보다 작음 (문자열끼리 비교하면 사전순!)
+console.log('김효경' > 50)
 
 
 // --------------------------------------------------------------------------
