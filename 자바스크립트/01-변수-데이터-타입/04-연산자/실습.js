@@ -42,11 +42,13 @@ console.log(Math.pow(2, 5) === 2 ** 5) //
 
 // 복리 계산
 const principal = 1_000_000 // 원금 100만원
-const rate = 0.5 // 연 5% 이자율
+const rate = 0.05 // 연 5% 이자율
 const years = 3 // 3년
 const amount = principal * (1 + rate) ** years // 원금  * (1 + 이자율)몇년간(거듭제곱)
+const amount2 = principal * Math.pow((1 + rate), years ) 
 
 console.log(amount)
+console.log(amount2)
 
 // --------------------------------------------------------------------------
 // [산술 연산] 나머지 연산자 활용
@@ -144,7 +146,7 @@ console.log(count) // 이 때 (다음라인) count = 4
 // count = count + 1
 
 ++count // 이 라인에서 값이 바로 바뀜 (전증가라) count = 5
-console.log(count) // 이 때 (다음라인) count = 5
+console.log(count) // 이 때도 count = 5
 
 // 후 감소 (Post-decrement)
 console.log(count--)
@@ -220,7 +222,7 @@ console.log(stock)
 
 // [할당 연산] 가격 인상
 let price = 10000
-price *= (1 + 0.5) // 5%인상
+price *= (1 + 0.5) // 50%인상
 console.log(price)
 
 
@@ -305,7 +307,7 @@ console.log(is_logged_out)
 
 // 이중 부정 (!!) - boolean 변환 (Boolean() 대체)
 console.log(Boolean('자바스크립트'))
-console.log(!!'')
+console.log(!!'자바스크립트')
 
 
 // '' 변환 출력 결과: false
@@ -438,7 +440,7 @@ let can_access = is_admin || is_owner
 console.log (can_access)
 
 // 예제: 신선 유지 온도 조건
-let temperature = 32
+let temperature = 26
 // 온도가 18도 이상 26도 이하인 경우, 신선 유지
 // 직접 표현식으로 구현 (평가값 : Boolean)
 // 조건 A: 온도 >= 18 (temperature >= 18)
