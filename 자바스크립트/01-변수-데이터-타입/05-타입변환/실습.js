@@ -80,8 +80,12 @@ console.log(+a1 + +a2 + +a3)
 // --------------------------------------------------------------------------
 
 // 출력 결과: '3.141592' → 3.141592
+console.log('3.141592')
+console.log(parseFloat('3.141592'))
 
 // 출력 결과: '9.24점' → 9.24
+console.log('9.24점')
+console.log(parseFloat('9.24점'))
 
 
 // --------------------------------------------------------------------------
@@ -93,13 +97,48 @@ console.log(+a1 + +a2 + +a3)
 // --------------------------------------------------------------------------
 
 // 출력 결과: 2027 → '2027'
+console.log(NEXT_YEAR)
+console.log(String(NEXT_YEAR))
+console.log(NEXT_YEAR+ '')
+console.log(NEXT_YEAR.toString())
 
 // 출력 결과: 2027 → '2027년'
+console.log(2027)
+console.log(String(2027) + '년')
+console.log(2027 + '년') // ✅추천 : js가 자동으로 문자를 숫자로 변환(+연산일 경우만)
+
+
+// 진법 변환 (2진수)
+const myNumber = 255
+console.log(myNumber)
 
 // 출력 결과: 255 → '11111111' (2진수)
+console.log(myNumber.toString(2))
 
 // 출력 결과: 255 → 'ff' (16진수)
+console.log(myNumber.toString(16))
 
+
+// 색상 값(일상, 10진수) → 색상 코드(컴퓨터, 16진수) 변환
+const red = 255, green = 120, blue = 30
+
+let hexCode = '#'
+const redHexValue = red.toString(16)
+console.log(redHexValue)
+const greenHexValue = green.toString(16)
+console.log(greenHexValue)
+const blueHexValue = blue.toString(16).padStart(2, '0') //2자리로 만들고, 비워진 곳은 0으로 채워줘 
+console.log(blueHexValue)
+
+// hexCode = hexCode + redHexValue
+// 복합 할당 연산자 (+=)
+// x += 'hey'
+hexCode += redHexValue
+hexCode += greenHexValue
+hexCode += blueHexValue
+
+// 출력 결과 (예시): '#ff8000'
+console.log(hexCode)
 
 // --------------------------------------------------------------------------
 // 숫자 → 불리언 변환
