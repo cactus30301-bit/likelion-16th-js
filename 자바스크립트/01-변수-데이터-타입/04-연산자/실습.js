@@ -496,3 +496,23 @@ console.log(count++)  // 5 (출력 후 count가 6이 됨)
 console.log(count)    // 6
 }
 
+
+
+let usdNumber = 120.50
+let krwNumber = 1480
+
+let usdString = '120.50'
+let krwString = '1480'
+
+let usdCurrent = '120.50달러'
+let krwCurrent = '1480원'
+
+
+function convertUsdToKrw(x, y) {
+  return x * y
+}
+
+
+console.log (convertUsdToKrw (parseFloat(usdNumber), parseFloat(krwNumber)) + '원')
+console.log (convertUsdToKrw (parseFloat(usdString), parseFloat(krwString)) + '원')
+console.log (convertUsdToKrw (parseFloat(usdCurrent), parseFloat(krwCurrent)) + '원')
