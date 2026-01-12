@@ -13,42 +13,45 @@
 // --------------------------------------------------------------------------
 
 // isLightColorRed 변수에 true 할당
-let isLightColorRed = !true // 빨간불
-
-
-// if … else 문 작성
-// if (조건: 표현식 -> Boolean 평가된 값) {
-// 조건이 참인 경우 실행되는 문
-// }
+// let isLightColorRed = true // '빨간불'
 
 // if … else 문 작성
 // if (조건) {
-//  조건이 참인 경우 실행
-// } else {
-//  조건이 거짓인 경우 실행
+//   조건이 참인 경우 실행
 // }
 
+// if (조건) {
+//   조건이 참인 경우 실행
+// } else {
+//   조건이 거짓인 경우 실행  
+// }
 
+// 조건 : 표현식 (Boolean 값 평가)
+// const isTruethy = isLightColorRed === true
+// 만약 평가된 값이 참이면, 코드 블록 실행
+// if (isTruethy) {}
+
+let isLightColorRed = true && false // '빨간불'
 
 // 조건: isLightColorRed가 true인 경우
 //   - '신호등 앞에서 멈춰야 합니다.' 출력
-// 조건이 false인 경우
-//   - '좌우를 살피고 건널목을 건넙니다.' 출력
-if (isLightColorRed === true) {
-  console.log('신호등 앞에서 멈춰야 합니다')
+if (isLightColorRed) {
+  console.log('신호등 앞에서 멈춰야 합니다.')
 } else {
   console.log('좌우를 살피고 건널목을 건넙니다.')
 }
 
+// 조건이 false인 경우
+//   - '좌우를 살피고 건널목을 건넙니다.' 출력
 // if (isLightColorRed !== true) {
-//   console.log('좌우를 살피고 건널목을 건넙니다.')
-// }
+if (!isLightColorRed) {
+  console.log('좌우를 살피고 건널목을 건넙니다.')
+}
+
 
 // 설명:
 // if 문은 조건이 참(true)일 때 첫 번째 블록을 실행하고,
 // 거짓(false)일 때 else 블록을 실행합니다.
-
-
 
 // 출력 결과:
 // '신호등 앞에서 멈춰야 합니다.'
@@ -142,24 +145,24 @@ if (isLightColorRed === true) {
 // 보다 크다(>), 크거나 같다(>=) 연산자
 
 // 24 > 23 결과 출력
-
+console.log(24 > 23)
 
 // 24 > 24 결과 출력
-
+console.log(24 > 24)
 
 // 24 >= 24 결과 출력
-
+console.log(24 >= 24)
 
 // 보다 작다(<), 작거나 같다(<=) 연산자
 
 // 24 < 25 결과 출력
-
+console.log(24 < 25)
 
 // 24 < 24 결과 출력
-
+console.log(24 < 24)
 
 // 24 <= 24 결과 출력
-
+console.log(24 <= 24)
 
 // 설명:
 // 크기 비교 연산자는 주로 숫자를 비교할 때 사용합니다.
@@ -176,16 +179,20 @@ if (isLightColorRed === true) {
 // 완전히 동일(===), 완전히 다름(!==) 연산자
 
 // 24 === 24 결과 출력
-
+console.log(24 == '24')
+console.log(24 === '24')
+console.log(24 === 24)
 
 // 24 !== 24 결과 출력
-
+console.log(24 !== '24')
+console.log(24 !== 24)
 
 // '24' === 24 결과 출력 (타입이 다름)
-
+console.log('24' === 24)
+console.log('24' !== 24)
 
 // '24' !== 24 결과 출력 (타입이 다름)
-
+console.log('24' !== 24)
 
 // 설명:
 // === 연산자는 타입과 값을 모두 비교합니다. (엄격한 비교)
@@ -208,10 +215,10 @@ if (isLightColorRed === true) {
 
 
 // '24' != 24 결과 출력 (문자열이 숫자로 자동 변환)
-
+console.log(24 != '24')
 
 // 0 == false 결과 출력 (false가 0으로 자동 변환)
-
+console.log(0 == false)
 
 // 1 == true 결과 출력 (true가 1로 자동 변환)
 
@@ -256,10 +263,10 @@ if (isLightColorRed === true) {
 
 
 // null을 Number() 함수에 전달하여 결과 출력
-
+// 0
 
 // undefined를 Number() 함수에 전달하여 결과 출력
-
+// NaN
 
 // 설명:
 // Number() 함수는 값을 숫자로 변환합니다.
@@ -278,23 +285,36 @@ if (isLightColorRed === true) {
 // --------------------------------------------------------------------------
 
 // lightColor 변수에 '노란색' 할당
+let lightColor = '노란색'
+console.log(lightColor)
 
+// 색상이 '빨간색'으로 변경(할당)
+lightColor = '빨간색'
+console.log(lightColor)
 
-// if … else if … else 문 작성
-// 조건 1: lightColor가 '빨간색'인 경우
-//   - '신호등 앞에서 멈춰야 합니다.' 출력
-// 조건 2: lightColor가 '초록색'인 경우
-//   - '좌우를 살피고 건널목을 여유있게 건넙니다.' 출력
-// 그 외의 경우
-//   - '좌우를 살피고 건널목을 빠르게 건너갑니다.' 출력
+// 색상이 '초록색'으로 변경(할당)
+lightColor = '초록색'
+console.log(lightColor)
 
+if (lightColor === '빨간색') {
+  console.log('신호등 앞에서 멈춰야 합니다.')
+}
+if (lightColor === '초록색') {
+  console.log('좌우를 살피고 건널목을 여유있게 건넙니다.')
+}
+if (lightColor === '노란색') {
+  console.log('좌우를 살피고 건널목을 빠르게 건너갑니다.')
+}
 
-// 설명:
-// else if 문을 사용하면 여러 조건을 순차적으로 검사할 수 있습니다.
-// 조건이 참인 블록을 실행하면 나머지 조건은 검사하지 않습니다.
-
-// 출력 결과:
-// '좌우를 살피고 건널목을 빠르게 건너갑니다.'
+if (lightColor === '빨간색') {
+  console.log('신호등 앞에서 멈춰야 합니다.')
+}
+else if (lightColor === '초록색') {
+  console.log('좌우를 살피고 건널목을 여유있게 건넙니다.')
+}
+else {
+  console.log('좌우를 살피고 건널목을 빠르게 건넙니다.')
+}
 
 
 // --------------------------------------------------------------------------
