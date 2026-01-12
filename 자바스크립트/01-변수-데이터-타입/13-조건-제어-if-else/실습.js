@@ -406,6 +406,18 @@ if (userAge < 7) {
 // 나이에 따른 입장료 계산
 // age 변수에 15 할당
 
+const entranceFee = '입장료 : '
+const age = 15
+
+if (age < 7) {
+  console.log(entranceFee + '무료')
+} else if (7 <= age && 19 > age) {
+  console.log(entranceFee + '5,000원')
+} else if (19 <= age && 65 > age) {
+  console.log(entranceFee + '10,000원')
+} else {
+  console.log(entranceFee + '7,000원')
+}
 
 // if … else if … else 문 작성
 // 조건 1: age가 7 미만인 경우
@@ -427,6 +439,17 @@ if (userAge < 7) {
 
 // 온도에 따른 옷차림 추천
 // temperature 변수에 25 할당
+
+const temperature = 25
+if (temperature >= 28) {
+  console.log('반팔과 반바지를 입으세요.')
+} else if (temperature >= 20 && temperature < 28) {
+  console.log('긴팔 티셔츠를 입으세요.')
+} else if (temperature >= 10 && temperature < 20) {
+  console.log('가디건이나 자켓을 챙기세요.')
+} else {
+  console.log('두꺼운 외투를 입으세요.')
+} 
 
 
 // if … else if … else 문 작성
@@ -450,10 +473,17 @@ if (userAge < 7) {
 // 로그인 상태 확인
 // isLoggedIn 변수에 false 할당
 
+const isLoggedIn = false
 
 // username 변수에 null 할당
+const username = '배고프당'
 
 
+if (isLoggedIn === true && username !== null) {
+  console.log(`${username}님, 환영합니다!`)
+} else {
+  console.log('로그인이 필요합니다.')
+}
 // if 문 작성
 // 조건: isLoggedIn === true이고 username !== null인 경우
 //   - '[username]님, 환영합니다!' 출력
