@@ -11,17 +11,21 @@
 // Undefined - 변수 선언만 하고 값을 할당하지 않은 경우
 // --------------------------------------------------------------------------
 
+// TDZ (uninitialized, 초기화 되지 않은 상태, 접근 불가)
 // data 변수 선언 (값 할당하지 않음)
-
+let data // JS 엔진이 초기화 (initialization, undefined 할당, 개발자 의도 없음)
 
 // data 변수 출력
+console.log(data)
 
 
 // data 변수의 타입 출력 (typeof 연산자 사용)
+console.log(typeof data, String(data), '' + data)
+// 데이터와 문자값을 연결할 때 문자값으로 변신시켜준다.
 
 
 // 설명:
-// 변수를 선언하고 값을 할당하지 않으면 JavaScript 엔진이 자동으로 undefined를 할당합니다.
+// 변수를 선언하고 값을 할당하지 않으면 JavaScript 엔진이 자동으로 undefined를 할당합니다. > 초기화
 // undefined는 "값이 정의되지 않음"을 나타냅니다.
 
 // 출력 결과:
@@ -34,13 +38,17 @@
 // --------------------------------------------------------------------------
 
 // doNothing 함수 선언 (아무것도 하지 않는 빈 함수)
-
+function doNothing () {
+// 개발자가 아무 것도 명시적으로 반환하지 않음
+// js 엔진이 암묵적으로 undefined 값을 반환
+// return undefined  
+}
 
 // doNothing 함수 호출 결과를 result 변수에 할당
-
+const result = doNothing()
 
 // result 변수 출력
-
+console.log(result)
 
 // 설명:
 // 명시적으로 값을 반환하지 않는 함수는 기본적으로 undefined를 반환합니다.
@@ -56,16 +64,23 @@
 // user 객체 생성
 // name 속성: '이준'
 // age 속성: 20
-
+const user = {
+  name : '이준',
+  age : 20, 
+}
 
 // user 객체의 name 속성 출력
+console.log(user.name)
+console.log(user['name'])
 
+const propName = 'age'
+console.log(user[propName])
 
 // user 객체의 email 속성 출력 (존재하지 않는 속성)
-
+console.log(user.email)
 
 // user 객체의 address 속성 출력 (존재하지 않는 속성)
-
+console.log(user.address)
 
 // 설명:
 // 객체에 존재하지 않는 속성에 접근하면 undefined가 반환됩니다.
@@ -81,19 +96,21 @@
 // --------------------------------------------------------------------------
 
 // fruits 배열 생성 ['천혜향', '애플망고']
-
+const fruits = ['천혜향', '애플망고']
 
 // fruits 배열의 0번 인덱스 출력
-
+console.log(fruits[0])
+console.log(fruits.at(0))
 
 // fruits 배열의 1번 인덱스 출력
-
+console.log(fruits[1])
 
 // fruits 배열의 2번 인덱스 출력 (존재하지 않는 인덱스)
-
+console.log(fruits[2])
 
 // 설명:
 // 배열에 존재하지 않는 인덱스에 접근하면 undefined가 반환됩니다.
+console.log(fruits[3])
 
 // 출력 결과:
 // '천혜향'
@@ -108,10 +125,12 @@
 // greet 함수 선언
 // 매개변수: name, age
 // 기능: name과 age를 각각 출력
-
+function greet (tempName, age) {
+return 'tempName = ' + tempName + ' /age =' + age 
+}
 
 // greet 함수 호출 ('현정'만 전달, age는 전달하지 않음)
-
+console.log(greet('현정'))
 
 // 설명:
 // 함수 매개변수에 값을 전달하지 않으면 해당 매개변수는 undefined가 됩니다.
@@ -128,16 +147,21 @@
 // 소드마스터 객체 생성
 // 이름 속성: '요하네스 리히테나워'
 // 무기 속성: null (의도적으로 "무기가 없음"을 표현)
+const 소드마스터 = {
+  이름 : '요하네스 라히테나워',
+  무기 : null,
+}
+
 
 
 // 소드마스터 객체의 무기 속성 출력
-
+console.log(소드마스터.무기)
 
 // 소드마스터 객체의 무기 속성을 '츠바이헨더'로 변경
-
+소드마스터.무기 = '츠바이헨더'
 
 // 소드마스터 객체의 무기 속성 출력
-
+console.log(소드마스터.무기)
 
 // 설명:
 // null은 개발자가 의도적으로 "값이 비어있음"을 명시할 때 사용합니다.
@@ -152,18 +176,22 @@
 // --------------------------------------------------------------------------
 
 // currentUser 변수에 null 할당 (아직 로그인하지 않음을 명시)
-
+let currentUser = null // 로그인 안한 상태(시간의 흐름에 따라 변하는 데이터)
 
 // currentUser 변수 출력
-
+console.log(currentUser)
 
 // 로그인 후 currentUser 변수에 객체 할당
 // name 속성: 'jee'
 // email 속성: 'jee@example.com'
+currentUser = {
+  name: 'jee',
+  email: 'jee@example.com',
+}
 
 
 // currentUser 변수 출력
-
+console.log(currentUser, !!currentUser)
 
 // 설명:
 // null은 "나중에 값이 할당될 것"을 명시적으로 표현할 때 사용합니다.
@@ -178,9 +206,10 @@
 // --------------------------------------------------------------------------
 
 // currentUser 변수를 null로 초기화 (로그아웃)
-
+currentUser = null // 로그인 된 상태 -> 로그아웃
 
 // currentUser 변수 출력
+console.log(currentUser, !!currentUser)
 
 
 // 설명:
@@ -194,14 +223,32 @@
 // Null - 데이터베이스에서 값이 없음을 표현
 // --------------------------------------------------------------------------
 
-// user 객체 생성
+
+{
+  // user 객체 생성
 // name 속성: 'jee'
 // age 속성: 21
 // profileImage 속성: null (프로필 이미지가 없음)
 // bio 속성: null (자기소개가 없음)
 
+const user = {
+  name : 'jee',
+  age : 21,
+  profileImage : null, // 의도적으로 비워진 상태 값을 표현
+  bio : null, // 의도적으로 비워진 상태 값을 표현
+}
 
 // user 객체 출력
+console.log(user)
+
+//html 폼을 사용해 프로필 이미지 파일을 서버에 업로드 한다면?
+user.profileImage = "https://images.pexels.com/photos/1446948/pexels-photo-1446948.jpeg"
+
+//html 폼을 사용해 자기 소개를 입력한 후, 서버의 데이터베이스에 저장한다면?
+user.bio = '멋사 프론트엔드 부트캠프 16기 수강생으로 열심히 공부중입니다! 😊'
+
+console.log(user)
+}
 
 
 // 설명:
@@ -221,13 +268,38 @@
 //   - users 배열 생성 [{ id: 1, name: '재민' }, { id: 2, name: '상우' }]
 //   - find 메서드로 id가 일치하는 사용자 찾기
 //   - 사용자를 찾으면 해당 객체 반환, 못 찾으면 null 반환
+const users = [
+  { id: 1, name: '재민' }, 
+  { id: 2, name: '상우' },
+] // users = [user0, user1]
 
+const findUser = (id) => {
+  // 배열도 객체, 객체는 메서드를 가질 수 있다.
+  // 배열의 능력(메서드, method) 중 하나가 "찾는 것(find)"입니다.
+  // 배열.찾는다(id 값이 일치하는 사용자를)
+  // [...].find()
+  // 찾은 사용자 (finded user)
+  // const findedUser = users.find(function(user/* 사용자: id, name */) {
+  //   // return user.id == id
+  //   return user.id === Number(id)
+  // })
+
+  const findedUser = users.find(u => u.id === Number(id))
+
+  // 논리 연산자 (조건에 따른 값 반환)
+  return findedUser || null // 값 또는 (표현식 평가 -> 값)
+}
 
 // findUser 함수 호출 (id: 1 전달) 및 결과 출력
-
+const jaemin = findUser(1)
+const sangwoo = findUser(2)
+console.log(jaemin.name)
+console.log(sangwoo['id'])
 
 // findUser 함수 호출 (id: 99 전달) 및 결과 출력
-
+console.log(findUser(99))
+console.log(findUser(100))
+console.log(findUser(-1))
 
 // 설명:
 // 함수에서 "값을 찾지 못했음"을 명시적으로 표현할 때 null을 반환합니다.
@@ -261,7 +333,9 @@
 // --------------------------------------------------------------------------
 
 // null과 undefined를 == 연산자로 비교한 결과 출력
-
+console.log(null == undefined) // ❌
+console.log(!!null == !!undefined) // ❌
+console.log(Boolean(null) == Boolean(undefined)) // ❌
 
 // 설명:
 // == 연산자는 타입을 자동 변환한 후 비교합니다.
@@ -276,7 +350,7 @@
 // --------------------------------------------------------------------------
 
 // null과 undefined를 === 연산자로 비교한 결과 출력
-
+console.log(null === undefined)
 
 // 설명:
 // === 연산자는 타입까지 엄격하게 비교합니다.
@@ -291,17 +365,19 @@
 // 좋은 예 vs 나쁜 예
 // --------------------------------------------------------------------------
 
+{
 // ✅ 좋은 예 - undefined
 // data1 변수 선언 (값 할당하지 않음)
-
+let data1
+console.log(data1)
 
 // ❌ 나쁜 예 - undefined를 명시적으로 할당하지 마세요
 // data2 변수에 undefined 할당 (불필요)
-
+let data2 = undefined
 
 // ✅ 좋은 예 - null
 // currentUser2 변수에 null 할당 (아직 로그인하지 않음을 명시)
-
+let currentUser2 = null
 
 // product 객체 생성
 // name 속성: '랩탑'
@@ -311,7 +387,7 @@
 // 설명:
 // undefined는 JavaScript 엔진이 자동으로 할당하므로 명시적으로 할당하지 마세요.
 // null은 개발자가 의도적으로 "값이 없음"을 표현할 때 사용하세요.
-
+}
 
 // --------------------------------------------------------------------------
 // 핵심!
@@ -333,22 +409,37 @@
 // 레벨 속성: 1
 // 무기 속성: null (초기에는 무기가 없음)
 // 방어구 속성: null (초기에는 방어구가 없음)
-
+const  마법사 = {
+  이름: '멀린',
+  레벨: 99,
+  무기: null,
+  방어구: null,
+}
 
 // 캐릭터 객체 출력
-
+console.log(마법사)
 
 // 캐릭터가 무기를 획득
 // 무기 속성을 '강철 검'으로 변경
-
+마법사.무기 = '마법의 지팡이'
 
 // 캐릭터 객체 출력
-
-
 // getWeaponName 함수 선언
 // 매개변수: character
-// 기능: character의 무기가 null이면 '무기 없음' 반환, 아니면 무기 이름 반환
+function getWeaponName(캐릭터) {
+    return 캐릭터.무기 || '무기 없음'
+  }
 
+
+const 난쟁이 = {
+  이름: '스머프',
+  레벨: 12,
+  무기: null,
+  방어구: null,
+}
+// 기능: character의 무기가 null이면 '무기 없음' 반환, 아니면 무기 이름 반환
+console.log(getWeaponName(마법사))
+console.log(getWeaponName(난쟁이))
 
 // getWeaponName 함수 호출 (캐릭터 객체 전달) 및 결과 출력
 
@@ -361,3 +452,21 @@
 // { 이름: '전사', 레벨: 1, 무기: null, 방어구: null }
 // { 이름: '전사', 레벨: 1, 무기: '강철 검', 방어구: null }
 // '강철 검'
+
+
+{
+  // &&, || 조건 처리
+
+  // 표현식(Expression)
+  // - 계산 후, 값을 구하는 과정(평가)
+
+  // 표현식에서의 논리곱(&&, AND) 연산자
+  // - 첫 번째 거짓 같은 값(Falsy)를 찾는 연산자
+let result1 = 1 && {} && ' ' && -1 && 10n && 0
+console.log(result1)
+
+// 표현식에서의 논리합(||) 연산자
+// - 첫번째 참 같은 값(Trythy))를 찾는 연산자
+let result2 = 0 || '' || null || undefined || Symbol()
+console.log(result2)
+}
